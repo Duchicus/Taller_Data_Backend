@@ -1,5 +1,5 @@
 
-//const Data = require('../models/Data.js');
+const Data = require('../models/Data.js');
 require('dotenv').config();
 //const { JWT_SECRET, API_URL } = process.env;
 
