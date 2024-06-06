@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 dbConnection();
 
+app.use('/data', require('./routes/data.js'));
 
 // app.get('/api/news/', async (req, res) => {
 //     const year=req.query.year
