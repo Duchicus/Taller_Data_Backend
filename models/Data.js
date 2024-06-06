@@ -25,6 +25,6 @@ DataSchema.methods.toJSON = function () {
 	return data;
 };
 
-const data = mongoose.model('data', DataSchema);
+const data = mongoose.model('taller', DataSchema);
 
 module.exports = data;
