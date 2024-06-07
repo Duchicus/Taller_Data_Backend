@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const ObjectId = mongoose.SchemaTypes.ObjectId;
 
-const DataSchema = new mongoose.Schema(
+const InvoiceSchema = new mongoose.Schema(
 	{
 	    customer_id: String,
         gender: String,
@@ -17,14 +17,14 @@ const DataSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-DataSchema.index({ customer_id: 'text' });
+InvoiceSchema.index({ customer_id: 'text' });
 
-DataSchema.methods.toJSON = function () {
+InvoiceSchema.methods.toJSON = function () {
 	const data = this._doc;
 	delete data.__v;
 	return data;
 };
 
-const data = mongoose.model('taller', DataSchema);
+const Invoice = mongoose.model('invoice', InvoiceSchema);
 
-module.exports = data;
+module.exports = Invoice;
