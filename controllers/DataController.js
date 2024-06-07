@@ -24,6 +24,23 @@ const DataController = {
         console.error(error);
     }
 },
+async getByCategory(req, res) {
+    try {
+        const { page = 1, limit = 100 } = req.query;
+        const category = new RegExp(req.params.category, 'i');
+        const totalRows= await Invoice.countDocuments()
+        const totalCategory= await Invoice.find({category}).countDocuments()
+        const data = await Invoice.find({category})
+        .limit(limit)
+        .skip((page - 1) * limit);
+        res.send({msg: 'All data',
+        total:totalRows,
+        totalCategory,
+        data});
+    } catch (error) {
+        console.error(error);
+    }
+},
 
 }
 
